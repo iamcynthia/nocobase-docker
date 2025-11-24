@@ -1,0 +1,22 @@
+# Environment / secrets
+.env
+
+# NocoBase runtime data
+storage/apps/*
+!storage/apps/.gitkeep
+storage/db/*
+!storage/db/.gitkeep
+storage/logs/*
+!storage/logs/.gitkeep
+storage/uploads/*
+!storage/uploads/.gitkeep
+storage/.license/*
+
+# Plugin build artifacts
+storage/plugins/node_modules/
+storage/plugins/dist/
+storage/plugins/*.tgz
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
