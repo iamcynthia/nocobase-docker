@@ -16,25 +16,25 @@ services:
       # The application's secret key, used to generate user tokens, etc.
       # If APP_KEY is changed, old tokens will also become invalid.
       # It can be any random string, and make sure it is not exposed.
-      - APP_KEY=${APP_KEY:?Set APP_KEY in .env}
+      - APP_KEY=${APP_KEY}
       # Database type, supports postgres, mysql, mariadb
-      - DB_DIALECT=${DB_DIALECT:-postgres}
+      - DB_DIALECT=${DB_DIALECT}
       # Database host, can be replaced with the IP of an existing database server
-      - DB_HOST=${DB_HOST:-postgres}
+      - DB_HOST=${DB_HOST}
       # Database port
-      - DB_PORT=${DB_PORT:-5432}
+      - DB_PORT=${DB_PORT}
       # Database name
-      - DB_DATABASE=${DB_DATABASE:-nocobase}
+      - DB_DATABASE=${DB_DATABASE}
       # Database user
-      - DB_USER=${DB_USER:-nocobase}
+      - DB_USER=${DB_USER}
       # Database password
-      - DB_PASSWORD=${DB_PASSWORD:-nocobase}
+      - DB_PASSWORD=${DB_PASSWORD}
       # Timezone
-      - TZ=${TZ:-UTC}
+      - TZ=${TZ}
     volumes:
       - ./storage:/app/nocobase/storage
     ports:
-      - '${APP_PORT:-13000}:80'
+      - '${APP_PORT}:80'
     # init: true
 
   # If using an existing database server, postgres service can be omitted
@@ -43,9 +43,9 @@ services:
     restart: always
     command: postgres -c wal_level=logical
     environment:
-      POSTGRES_USER: ${POSTGRES_USER:-nocobase}
-      POSTGRES_DB: ${POSTGRES_DB:-nocobase}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-nocobase}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - ./storage/db/postgres:/var/lib/postgresql/data
     networks:
