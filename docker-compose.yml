@@ -6,7 +6,7 @@ networks:
 
 services:
   app:
-    image: nocobase/nocobase:latest-full
+    image: nocobase/nocobase:1.9.12-full
     restart: always
     networks:
       - nocobase
@@ -31,6 +31,8 @@ services:
       - DB_PASSWORD=${DB_PASSWORD}
       # Timezone
       - TZ=${TZ}
+      - DB_DIALECT_OPTIONS_SSL_MODE=${DB_DIALECT_OPTIONS_SSL_MODE}
+      - DB_DIALECT_OPTIONS_SSL_REJECT_UNAUTHORIZED=${DB_DIALECT_OPTIONS_SSL_REJECT_UNAUTHORIZED}
     volumes:
       - ./storage:/app/nocobase/storage
     ports:
